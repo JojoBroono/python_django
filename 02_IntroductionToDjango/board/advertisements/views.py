@@ -3,10 +3,8 @@ from django.http import HttpResponse
 
 
 def advertisements_list(request):
-    return HttpResponse(
-        '<ul>'
-        '<li>Мастер на час</li>'
-        '<li>Выведение из запоя</li>'
-        '<li>Услуги экскаватора-погрузчика, гидромолота, ямобура</li>'
-        '</ul>'
-    )
+    return render(request, 'advertisements/advertisements_list.html')
+
+
+def advertisement(request):
+    return render(request, 'advertisements/advertisement.html')
