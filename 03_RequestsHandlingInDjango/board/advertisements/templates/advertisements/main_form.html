@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="">
+        <label for="region_select">Регион</label>
+        <select name="" id="region_select">
+            {%  for reg in regions %}
+            <option value="{{reg}}">{{reg}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="category_select">Регион</label>
+        <select name="" id="category_select">
+            {%  for cat in categories %}
+            <option value="{{cat}}">{{cat}}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="_title"></label>
+        <p><input type="text" class="text" id="_title"></p>
+        
+        <p><input type="submit" value="Найти"></p>
+    </form>
+</body>
+</html>
