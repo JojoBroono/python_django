@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {%  for adv in object_list %}
+                <li>
+                    <h2><a href="/advertisements/{{adv.id}}">{{adv.title}}</a></h2>
+                    <b>{{adv.price}} руб.</b>
+                    <p>Опубликовано: {{adv.publication_date}}</p>
+                </li>
+        {% empty %}
+            <li>Нет объявлений</li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
