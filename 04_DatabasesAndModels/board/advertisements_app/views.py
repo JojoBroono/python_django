@@ -9,3 +9,9 @@ class AdvertisementList(ListView):
 
 class AdvertisementDetailView(DetailView):
     model = Advertisement
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset=None)
+        obj.views_count += 1
+        obj.save()
+        return obj
