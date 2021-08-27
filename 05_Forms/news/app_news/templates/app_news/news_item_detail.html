@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Item</title>
+</head>
+<body>
+    <h2>{{ news_item.title }}</h2>
+    <p>{{ news_item.content }}</p>
+    <p>created_at: {{ news_item.created_at }}</p>
+    <p>updated_at: {{  news_item.updated_at }}</p>
+    <hr>
+    <ul>
+    {% for com in comments %}
+        <li>
+            <h4>{{ com.user_name }}</h4>
+            <p>{{ com.content }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+    <h4>Create a comment</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit">Add comment</button>
+    </form>
+</body>
+</html>

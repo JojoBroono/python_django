@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+</head>
+<body>
+    <h2>News</h2>
+    <ul>
+        {% for item in news_items %}
+        <li>
+            <h3><a href="{{ item.id }}">{{ item.title }}</a></h3>
+            <p>{{ item.content|slice:":100" }}...</p>
+            <p>Created at: {{ item.created_at }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
