@@ -8,7 +8,7 @@
     <h2>Edit</h2>
     <form method="post">
         {% csrf_token %}
-        {{ news_item_form.as_p }}
+        {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
 </body>
