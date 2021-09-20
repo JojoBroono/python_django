@@ -31,5 +31,8 @@ class Comment(models.Model):
             return self.content[:15] + '...'
 
     def __str__(self):
-        return f"{self.user.username}: {self.content[:15]}..."
+        if self.user is not None:
 
+            return f"{self.user.username}: {self.content[:15]}..."
+        else:
+            return f"{self.user_name} (Anonymous): {self.content[:15]}..."
