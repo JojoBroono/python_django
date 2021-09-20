@@ -25,14 +25,10 @@ class Comment(models.Model):
     news_item = models.ForeignKey('NewsItem', null=False, on_delete=models.CASCADE)
 
     def display_content(self):
-        if len(self.content) <= 15:
-            return self.content[:15]
-        else:
-            return self.content[:15] + '...'
+        return self.content
 
     def __str__(self):
         if self.user is not None:
-
             return f"{self.user.username}: {self.content[:15]}..."
         else:
             return f"{self.user_name} (Anonymous): {self.content[:15]}..."

@@ -30,13 +30,7 @@ class NewsItemEditFormView(UpdateView):
 
 class NewsItemsListView(ListView):
     template_name = 'app_news/news_items_list.html'
-    model = NewsItem
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = {
-            'object_list': self.object_list.order_by('created_at')
-        }
-        return context
+    queryset = NewsItem.objects.all().order_by('created_at')
 
 
 class NewsItemDetailView(View):
