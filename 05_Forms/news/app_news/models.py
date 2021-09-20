@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User, AnonymousUser
 
 
 class NewsItem(models.Model):
@@ -18,6 +19,7 @@ class NewsItem(models.Model):
 
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     user_name = models.CharField(max_length=100)
     content = models.TextField()
     news_item = models.ForeignKey('NewsItem', null=False, on_delete=models.CASCADE)
@@ -29,5 +31,5 @@ class Comment(models.Model):
             return self.content[:15] + '...'
 
     def __str__(self):
-        return f"{self.user_name}: {self.content[:15]}..."
+        return f"{self.user.username}: {self.content[:15]}..."
 

@@ -11,4 +11,14 @@ class NewsItemForm(forms.ModelForm):
 class NewCommentForm(forms.ModelForm):
     class Meta:
         model = Comment
+        fields = ['content']
+
+
+class NewCommentFormAnon(forms.ModelForm):
+    class Meta:
+        model = Comment
         fields = ['user_name', 'content']
+
+class AuthForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)

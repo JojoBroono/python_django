@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>News Item</title>
-</head>
-<body>
+{% extends "app_news/base.html" %}
+{% block title %}News Item{% endblock %}
+
+{% block content %}
     <h2>{{ news_item.title }}</h2>
     <p>{{ news_item.content }}</p>
     <p>created_at: {{ news_item.created_at }}</p>
@@ -13,7 +10,11 @@
     <ul>
     {% for com in comments %}
         <li>
-            <h4>{{ com.user_name }}</h4>
+            {% if com.user is not None %}
+                <h4>{{ com.user.username }}</h4>
+            {% else %}
+                <h4>{{ com.user_name }} (Anonimous)</h4>
+            {% endif %}
             <p>{{ com.content }}</p>
         </li>
     {% endfor %}
@@ -24,5 +25,4 @@
         {{ comment_form.as_p }}
         <button type="submit">Add comment</button>
     </form>
-</body>
-</html>
+{% endblock %}

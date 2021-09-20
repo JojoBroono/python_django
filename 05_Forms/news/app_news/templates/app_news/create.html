@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>create news</title>
-</head>
-<body>
+{% extends "app_news/base.html" %}
+{% block title %}create news{% endblock %}
 
+{% block content %}
+    <h2>Create</h2>
     <form method="post" >
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
-</body>
-</html>
+{% endblock %}
